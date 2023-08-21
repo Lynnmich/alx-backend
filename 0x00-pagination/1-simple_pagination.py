@@ -10,7 +10,7 @@ from typing import List, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """this method takes two args and returns tuple 
+    """this method takes two args and returns tuple
     of size two containing the start and end indices
     """
     start_index = 0
