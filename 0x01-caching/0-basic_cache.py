@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" BaseCaching module """
+""" BaseCache module """
+from base_caching import BaseCaching
+
 
 class BaseCache(BaseCaching):
     """ BaseCache class that inherits from BaseCaching class """
