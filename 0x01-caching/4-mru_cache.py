@@ -21,7 +21,7 @@ class MRUCache(BaseCaching):
                 self.cache_data_list.append(key)
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 length = len(self.cache_data_list)
-                popped_item = self.cache_data_list.pop(length)
+                popped_item = self.cache_data_list.pop(length - 2)
                 del self.cache_data[popped_item]
                 print("DISCARD: {}".format(str(popped_item)))
 
