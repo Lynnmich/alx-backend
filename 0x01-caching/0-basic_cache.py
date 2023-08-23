@@ -3,7 +3,7 @@
 from base_caching import BaseCaching
 
 
-class BaseCache(BaseCaching):
+class BasicCache(BaseCaching):
     """ BaseCache class that inherits from BaseCaching class """
     def __init__(self):
         """ Initiliaze """
