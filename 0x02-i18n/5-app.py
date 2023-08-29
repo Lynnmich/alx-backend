@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Basic flask app"""
-from typing import (Dict, Union)
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request
 from flask-babel import Babel
 
 
@@ -37,15 +36,7 @@ def get_user(id) -> Union[Dict[str, Union[str, None]], None]:
 @babel.localeselector
 def get_locale() -> str:
     """Gets locale from request object"""
-    options = [
-        request.args.get('locale', '').strip(),
-        g.user.get('locale', None) if g.user else None,
-        request.accept_languages.best_match(app.config['LANGUAGES']),
-        Config.BABEL_DEFAULT_LOCALE
-    ]
-    for locale in options:
-        if locale and locale in Config.LANGUAGES:
-            return locale
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.before_request
@@ -56,8 +47,8 @@ def before_request() -> None:
 
 @app.route("/", strict_slashes=False)
 def index() -> str:
-    """route renders 6-index.html"""
-    return render_template("6-index.html")
+    """route renders 4-index.html"""
+    return render_template("4-index.html")
 
 
 if __name__ == '__main__':
