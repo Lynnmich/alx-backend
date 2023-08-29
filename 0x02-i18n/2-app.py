@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Basic flask app"""
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask-babel import Babel
 
 
@@ -12,14 +12,20 @@ class Config(object):
 
 
 app = Flask(__name__, static_url_path="")
-app.config.from_object('1-app.Config')
+app.config.from_object(Config)
 babel = Babel(app)
+
+
+@babel.localeselector
+def get_locale() -> str:
+    """Gets locale from request object"""
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route("/", strict_slashes=False)
 def index() -> str:
-    """route renders 1-index.html"""
-    return render_template("1-index.html")
+    """route renders 2-index.html"""
+    return render_template("2-index.html")
 
 
 if __name__ == '__main__':
