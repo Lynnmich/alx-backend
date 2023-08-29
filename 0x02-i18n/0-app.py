@@ -3,9 +3,9 @@
 from flask import Flask, render_template
 
 
-app = Flask(__name__)
+app = Flask (__name__)
 
 @app.route("/")
 def index():
-    """App route for index.html"""
+    """route for index.html"""
     return render_template("0-index.html")
